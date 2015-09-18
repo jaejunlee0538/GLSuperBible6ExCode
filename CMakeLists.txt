@@ -112,6 +112,13 @@ set(EXAMPLES
   toonshading
   tunnel
   wrapmodes
+  CHAPTER02
+  CHAPTER03
+  CHAPTER04
+  CHAPTER05
+  CHAPTER06
+  CHAPTER07
+  CHAPTER08
 )
 
 if (WIN32)
@@ -124,7 +131,8 @@ endif()
 #endif(UNIX)
 
 foreach(EXAMPLE ${EXAMPLES})
-  add_executable(${EXAMPLE} WIN32 src/${EXAMPLE}/${EXAMPLE}.cpp)
+  #add_executable(${EXAMPLE} WIN32 src/${EXAMPLE}/${EXAMPLE}.cpp) # WinMain entry point
+  add_executable(${EXAMPLE} src/${EXAMPLE}/${EXAMPLE}.cpp) # main console
   target_link_libraries(${EXAMPLE} ${COMMON_LIBS})
   if(MSVC)
 configure_file(${PROJECT_SOURCE_DIR}/build/vs2010/VisualStudioUserFile.vcproj.user.in ${CMAKE_CURRENT_BINARY_DIR}/${EXAMPLE}.vcproj.user @ONLY)

@@ -1,5 +1,5 @@
 /*
- * Copyright © 2012-2013 Graham Sellers
+ * Copyright ?2012-2013 Graham Sellers
  *
  * Permission is hereby granted, free of charge, to any person obtaining a
  * copy of this software and associated documentation files (the "Software"),
@@ -23,6 +23,7 @@
 
 #include <sb6.h>
 #include <math.h>
+
 
 class singlepoint_app : public sb6::application
 {

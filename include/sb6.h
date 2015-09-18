@@ -73,6 +73,8 @@
 #include <stdio.h>
 #include <string.h>
 
+#define _DEBUG
+
 namespace sb6
 {
 
@@ -215,6 +217,9 @@ public:
         info.windowHeight = h;
     }
 
+	/*
+	onKey is called only at the rising or falling edge of keyboard.
+	*/
     virtual void onKey(int key, int action)
     {
 
@@ -327,17 +332,25 @@ protected:
 
 #if defined _WIN32
 #define DECLARE_MAIN(a)                             \
-sb6::application *app = 0;                          \
-int CALLBACK WinMain(HINSTANCE hInstance,           \
-                     HINSTANCE hPrevInstance,       \
-                     LPSTR lpCmdLine,               \
-                     int nCmdShow)                  \
+int main(int argc, const char ** argv)              \
 {                                                   \
     a *app = new a;                                 \
     app->run(app);                                  \
     delete app;                                     \
     return 0;                                       \
 }
+
+//sb6::application *app = 0;                          \
+//int CALLBACK WinMain(HINSTANCE hInstance,           \
+//                     HINSTANCE hPrevInstance,       \
+//                     LPSTR lpCmdLine,               \
+//                     int nCmdShow)                  \
+//{                                                   \
+//    a *app = new a;                                 \
+//    app->run(app);                                  \
+//    delete app;                                     \
+//    return 0;                                       \
+//}
 #elif defined _LINUX || defined __APPLE__
 #define DECLARE_MAIN(a)                             \
 int main(int argc, const char ** argv)              \
